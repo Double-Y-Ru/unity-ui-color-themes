@@ -1,0 +1,24 @@
+{
+  "name": "com.double-y.color-themes",
+  "version": "0.1.3",
+  "displayName": "Color Themes",
+  "description": "Allows to create multiple color palettes for different UI themes",
+  "unity": "2021.1",
+  "unityRelease": "28f1",
+  "documentationUrl": "https://github.com/Double-Y-Ru/unity-ui-color-themes",
+  "changelogUrl": "https://github.com/Double-Y-Ru/unity-ui-color-themes",
+  "licensesUrl": "https://mit-license.org/",
+  "dependencies": {
+  },
+  "keywords": [
+    "palette",
+    "color",
+    "theme"
+  ],
+  "author": {
+    "name": "Andrey Lemin",
+    "email": "elevator89@gmail.com",
+    "url": "https://github.com/Elevator89"
+  },
+  "type": "tool"
+}

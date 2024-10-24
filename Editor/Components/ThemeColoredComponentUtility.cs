@@ -1,6 +1,4 @@
 ﻿using DoubleY.ColorThemes.Components;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,19 +6,19 @@ namespace DoubleY.ColorThemes.Editor.Components
 {
     public static class ThemeColoredComponentUtility
     {
-        public static void CheckAndAddUseThemeButton<TComponentThemeColorer>(IEnumerable<Component> targetComponents) where TComponentThemeColorer : ThemeColoredComponent
-        {
-            if (GUILayout.Button("Use Color Theme", EditorStyles.miniButton))
-            {
-                bool someTargetsHaveConfiguringComponents = targetComponents.Any(targetComponent => targetComponent.TryGetComponent<TComponentThemeColorer>(out _));
-                if (someTargetsHaveConfiguringComponents) return;
+        public const string UseColorThemeMenuName = "Use Color Theme";
 
-                foreach (Component targetComponent in targetComponents)
-                {
-                    TComponentThemeColorer addedThemeColorer = Undo.AddComponent<TComponentThemeColorer>(targetComponent.gameObject);
-                    TryFindSimilarThemeColorAndApply(addedThemeColorer);
-                }
-            }
+        public static void RequireThemeColorerAndTryFindSimilarThemeColorAndApply<TComponentThemeColorer>(Component targetComponent) where TComponentThemeColorer : ThemeColoredComponent
+        {
+            TComponentThemeColorer addedThemeColorer = RequireThemeColorer<TComponentThemeColorer>(targetComponent);
+            TryFindSimilarThemeColorAndApply(addedThemeColorer);
+        }
+
+        public static TComponentThemeColorer RequireThemeColorer<TComponentThemeColorer>(Component targetComponent) where TComponentThemeColorer : ThemeColoredComponent
+        {
+            return targetComponent.TryGetComponent(out TComponentThemeColorer themeColorer)
+                ? themeColorer
+                : Undo.AddComponent<TComponentThemeColorer>(targetComponent.gameObject);
         }
 
         public static void ApplyColors(ThemeColoredComponent themeColorer)

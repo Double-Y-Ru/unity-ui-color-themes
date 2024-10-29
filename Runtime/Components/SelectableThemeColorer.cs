@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace DoubleY.ColorThemes.Components
 {
     [RequireComponent(typeof(Selectable))]
-    public class ThemeColoredSelectable : ThemeBlockColoredComponent
+    public class SelectableThemeColorer : ThemeBlockColorer
     {
         [SerializeField]
         private Selectable _selectable;

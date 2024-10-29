@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace DoubleY.ColorThemes.Components
 {
     [RequireComponent(typeof(MaskableGraphic))]
-    public class ThemeColoredGraphic : ThemeSingleColoredComponent
+    public class GraphicThemeColorer : ThemeSingleColorer
     {
         [SerializeField]
         private MaskableGraphic _graphic;

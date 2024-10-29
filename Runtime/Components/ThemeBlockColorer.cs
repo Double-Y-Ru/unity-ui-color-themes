@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace DoubleY.ColorThemes.Components
 {
-    public abstract class ThemeBlockColoredComponent : ThemeColoredComponent
+    public abstract class ThemeBlockColorer : ThemeColorer
     {
         [SerializeField] private ThemeAlphaColorBlock _themeColorBlock;
 

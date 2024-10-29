@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace DoubleY.ColorThemes.Editor.Components
 {
-    [CustomEditor(typeof(ThemeColoredComponent), editorForChildClasses: true)]
+    [CustomEditor(typeof(ThemeColorer), editorForChildClasses: true)]
     [CanEditMultipleObjects]
-    public class ThemeColoredComponentEditor : UnityEditor.Editor
+    public class ThemeColorerEditor : UnityEditor.Editor
     {
         private bool _takeWasSuccessful = true;
 
@@ -18,8 +18,8 @@ namespace DoubleY.ColorThemes.Editor.Components
             {
                 GUIContent applyButtonContent = EditorGUIUtility.TrTextContent("Apply", "Apply chosen theme color to the target.");
                 if (GUILayout.Button(applyButtonContent, EditorStyles.miniButton))
-                    foreach (ThemeColoredComponent colorCustomizer in targets)
-                        ThemeColoredComponentUtility.ApplyColors(colorCustomizer);
+                    foreach (ThemeColorer themeColorer in targets)
+                        ThemeColorerUtility.ApplyColors(themeColorer);
 
                 Color prevColor = GUI.color;
                 if (!_takeWasSuccessful)
@@ -30,8 +30,8 @@ namespace DoubleY.ColorThemes.Editor.Components
                     "Find theme color similar to the target's one. On success, apply it on both this component and target.");
 
                 if (GUILayout.Button(findAndApplyButtonContent, EditorStyles.miniButton))
-                    foreach (ThemeColoredComponent colorCustomizer in targets)
-                        _takeWasSuccessful &= ThemeColoredComponentUtility.TryFindSimilarThemeColorAndApply(colorCustomizer);
+                    foreach (ThemeColorer themeColorer in targets)
+                        _takeWasSuccessful &= ThemeColorerUtility.TryFindSimilarThemeColorAndApply(themeColorer);
 
                 GUI.color = prevColor;
             }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace DoubleY.ColorThemes.Components
 {
     [RequireComponent(typeof(Shadow))]
-    public class ThemeColoredShadow : ThemeSingleColoredComponent
+    public class ShadowThemeColorer : ThemeSingleColorer
     {
         [SerializeField]
         private Shadow _shadow;

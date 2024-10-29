@@ -2,7 +2,7 @@
 
 namespace DoubleY.ColorThemes.Components
 {
-    public abstract class ThemeSingleColoredComponent : ThemeColoredComponent
+    public abstract class ThemeSingleColorer : ThemeColorer
     {
         [SerializeField]
         private ThemeAlphaColor _themeColor;

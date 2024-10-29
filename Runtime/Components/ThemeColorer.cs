@@ -2,7 +2,7 @@
 
 namespace DoubleY.ColorThemes.Components
 {
-    public abstract class ThemeColoredComponent : MonoBehaviour
+    public abstract class ThemeColorer : MonoBehaviour
     {
         // Some Components may not be initialized in Awake yet, so we apply colors in Start
         protected virtual void Start()
